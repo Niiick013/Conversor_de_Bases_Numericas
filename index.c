@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void DecimalHexa();
+void HexaDecimal();
 //Funções externas
 
 struct VarGlob {
@@ -33,7 +34,7 @@ int main() {
             break;
         
         case 2:
-            printf("Hexa para decimal\n");
+            HexaDecimal();
 
             break;
 
@@ -57,7 +58,7 @@ int main() {
 } //Fim da função main
 
 void DecimalHexa() {
-    system("clear");
+    system("clear"); //Limpa a tela
     printf("========================\n");
     printf(" DECIMAL => HEXADECIMAL\n");
     printf("========================\n\n");
@@ -68,7 +69,7 @@ void DecimalHexa() {
 
     printf("\nValor Hexadecimal = %x\n", Global.Num);
     printf("==============================\n");
-    printf("Converter de novo?[s/n]: ");
+    printf(" Converter de novo?[s/n]: ");
     scanf("%c", &Global.Api);
 
     switch(Global.Api) { //Verificação
@@ -94,3 +95,41 @@ void DecimalHexa() {
 
 
 } // Fim da função DecimalHexa
+
+void HexaDecimal() {
+    system("clear"); //Limpa a tela
+    printf("========================\n");
+    printf(" HEXADECIMAL => DECIMAL\n");
+    printf("========================\n\n");
+
+    printf("Valor Hexadecimal: ");
+    scanf("%x", &Global.Num);
+    getchar(); //Limpa o buffer
+
+    printf("\nValor Decimal = %d\n", Global.Num);
+    printf("============================\n");
+    printf(" Converter de novo?[s/n]: ");
+    scanf("%c", &Global.Api);
+
+    switch(Global.Api) { //Verificação
+        case 's':
+            HexaDecimal();
+
+            break;
+
+        case 'n':
+            main();
+
+            break;
+
+        default:
+            system("clear");
+            printf("Valor inválido!\n\n");
+            sleep(1);
+            main();
+
+            break;
+
+    }
+
+} //Fim da função HexaDecimal
